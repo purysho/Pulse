@@ -35,7 +35,8 @@ def collect_windows()->list[ProcessInfo]:
     return sorted(out,key=lambda p:p.name.lower())
 
 def _linux_connections():
-    try:o=_run(["ss","-tunlpH"],6)
+    # -a, not -l: listening-only output would hide every established connection.
+    try:o=_run(["ss","-tunapH"],6)
     except Exception:return {}
     result={}; rx=re.compile(r"pid=(\d+)")
     for line in o.splitlines():

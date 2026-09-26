@@ -2,6 +2,14 @@
 
 All notable changes to Pulse are documented here.
 
+## [1.1.1] - 2026-09-26
+
+### Fixed
+- On Linux, Pulse asked `ss` for listening sockets only, so established connections never appeared. It now lists all sockets.
+
+### Added
+- Behavioural tests covering the areas above and the rest of the core.
+
 ## [1.1.0] - 2026-09-26
 
 ### Added
